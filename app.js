@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+var item = [];
+
 app.set("view engine", "ejs"); //App uses ejs as its view engine
 
 app.use(bodyParser.urlencoded({extended: true}));
@@ -20,12 +22,14 @@ app.get("/", function(req, res){
 
   var day = today.toLocaleDateString("en-US", options);
 
-  res.render("list", {day: day});
+  res.render("list", {day: day, newListItem: item});
 
 });
 
 app.post("/", function(req, res) {
-  console.log(req.body.newItem);
+  item = req.body.newItem;
+
+  res.redirect("/");
 })
 
 app.listen(3000, function() {

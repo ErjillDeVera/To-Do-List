@@ -1,20 +1,24 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
-  <head>
-    <meta charset="utf-8">
-    <title>To Do List</title>
-  </head>
-  <body>
-    <h1> <%= day %> </h1>
 
-    <ul>
-      <li>Test 1</li>
-    </ul>
+<head>
+  <meta charset="utf-8">
+  <title>To Do List</title>
+</head>
 
-    <form action="/" method="post">
-      <input type="text" name="newItem">
-      <button type="submit" name="button">Add</button>
-    </form>
-    
-  </body>
+<body>
+  <h1> <%= day %> </h1>
+
+  <ul>
+    <li>Test 1</li>
+    <li><%= newListItem %></li>
+  </ul>
+
+  <form action="/" method="post">
+    <input type="text" name="newItem">
+    <button type="submit" name="button">Add</button>
+  </form>
+
+</body>
+
 </html>

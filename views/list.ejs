@@ -11,7 +11,11 @@
 
   <ul>
     <li>Test 1</li>
-    <li><%= newListItem %></li>
+
+    <% for (var i = 0; i < newListItems.length; i++) {%>
+        <li><%= newListItems[i] %></li>
+    <%} %>
+
   </ul>
 
   <form action="/" method="post">

@@ -5,7 +5,11 @@
     <title>To Do List</title>
   </head>
   <body>
-    <h1>It's a <%= day %> !</h1>
+    <% if (day === "Saturday" || day === "Sunday")  { %>
+          <h1 style="color:purple"><%= day %> ToDo List</h1>
+    <% } else { %>
+      <h1 style="color:purple"><%= day %> ToDo List</h1>
+    <% } %>
 
   </body>
 </html>

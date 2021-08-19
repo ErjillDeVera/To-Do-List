@@ -10,6 +10,7 @@ let items = [];
 app.set("view engine", "ejs"); //App uses ejs as its view engine
 
 app.use(bodyParser.urlencoded({extended: true}));
+app.use(express.static("public"));
 
 app.get("/", function(req, res){
 

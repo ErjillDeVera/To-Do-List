@@ -5,6 +5,8 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
+app.use("view engine", "ejs"); //App uses ejs as its view engine
+
 app.get("/", function(req, res){
 
   var today = new Date();

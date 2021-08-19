@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 
 const app = express();
 
-app.use("view engine", "ejs"); //App uses ejs as its view engine
+app.set("view engine", "ejs"); //App uses ejs as its view engine
 
 app.get("/", function(req, res){
 

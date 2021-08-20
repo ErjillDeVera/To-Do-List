@@ -42,3 +42,11 @@ input:checked+p {
 input[type="checkbox"] {
   margin: 20px;
 }
+
+p {
+  margin: 0;
+  padding: 20px;
+  font-size: 20px;
+  font-weight: 200;
+  color: #00204a;
+}

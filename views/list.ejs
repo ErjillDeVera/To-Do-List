@@ -12,19 +12,20 @@
       <h1> <%= day %> </h1>
   </div>
 
-  <ul>
-    <li>Test 1</li>
-
+  <div class="box">
     <% for (var i = 0; i < newListItems.length; i++) {%>
-        <li><%= newListItems[i] %></li>
+      <div class="">
+            <li><%= newListItems[i] %></li>
+      </div>
     <%} %>
 
-  </ul>
+    <form action="/" method="post">
+      <input type="text" name="newItem">
+      <button type="submit" name="button">Add</button>
+    </form>
 
-  <form action="/" method="post">
-    <input type="text" name="newItem">
-    <button type="submit" name="button">Add</button>
-  </form>
+  </div>
+
 
 </body>
 

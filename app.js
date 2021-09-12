@@ -32,7 +32,14 @@ const item3 = new Item ({
   name: "<-- Hit this to delete an item."
 });
 
-
+const defaultItems = [item1, item2, item3];
+Item.insertMany(defaultItems, function(err){
+  if (err) {
+    console.log(err);
+  } else {
+    console.log("Successfully inserted all items");
+  }
+});
 
 app.get("/", function(req, res){
 

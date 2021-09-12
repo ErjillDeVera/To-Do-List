@@ -18,7 +18,7 @@ const itemSchema = {
   name: String
 };
 
-const Item = mongoose.model("Item", itemsSchema);
+const Item = mongoose.model("Item", itemSchema);
 
 const item1 = new Item ({
   name: "Welcome  to your todolist!"

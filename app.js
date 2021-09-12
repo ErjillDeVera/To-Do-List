@@ -12,6 +12,8 @@ app.set("view engine", "ejs"); //App uses ejs as its view engine
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(express.static("public"));
 
+mongoose.connect("mongodb://localhost:27017/todolistDB", {useNewUrlParser: true});
+
 app.get("/", function(req, res){
 
   const day = date.getDay();

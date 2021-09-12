@@ -18,6 +18,8 @@ const itemSchema = {
   name: String
 };
 
+const Item = mongoose.model("Item", itemsSchema);
+
 
 app.get("/", function(req, res){
 

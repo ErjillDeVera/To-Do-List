@@ -20,6 +20,19 @@ const itemSchema = {
 
 const Item = mongoose.model("Item", itemsSchema);
 
+const item1 = new Item ({
+  name: "Welcome  to your todolist!"
+});
+
+const item2 = new Item ({
+  name: "Hit the + button to add a new item."
+});
+
+const item3 = new Item ({
+  name: "<-- Hit this to delete an item."
+});
+
+
 
 app.get("/", function(req, res){
 

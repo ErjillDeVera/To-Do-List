@@ -42,10 +42,12 @@ Item.insertMany(defaultItems, function(err){
 });
 
 app.get("/", function(req, res){
-
   const day = date.getDay();
 
-  res.render("list", {listTitle: day, newListItems: items});
+  Item.find({}, function(err, foundItems){
+      res.render("list", {listTitle: day, newListItems: foundItems});
+  });
+
 
 });
 

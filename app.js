@@ -36,7 +36,7 @@ const defaultItems = [item1, item2, item3];
 
 const listSchema = {
   name: String,
-  items: [ItemSchema]
+  items: [itemSchema]
 };
 
 const List = mongoose.model("List", listSchema);
@@ -64,6 +64,13 @@ app.get("/", function(req, res){
 
 app.get("/:customListName", function(req, res){
   const customListName = req.params.customListName;
+
+  const list = new List({
+    name: customListName,
+    items: defaultItems
+  });
+
+  list.save();
 })
 
 app.post("/", function(req, res) {

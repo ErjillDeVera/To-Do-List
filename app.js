@@ -59,10 +59,12 @@ app.post("/", function(req, res) {
   const itemName = req.body.newItem;
 
   const item = new Item({
-    name: itemName;
+    name: itemName
   });
 
   item.save();
+
+  res.redirect("/");
 });
 
 app.get("/work", function(req, res){

@@ -37,7 +37,9 @@ const defaultItems = [item1, item2, item3];
 const listSchema = {
   name: String,
   items: [ItemSchema]
-}
+};
+
+const List = mongoose.model("List", listSchema);
 
 
 app.get("/", function(req, res){

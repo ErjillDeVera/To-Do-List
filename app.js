@@ -56,16 +56,13 @@ app.get("/", function(req, res){
 });
 
 app.post("/", function(req, res) {
-  let item = req.body.newItem;
-  console.log(req.body);
+  const itemName = req.body.newItem;
 
-  if (req.body.button === "Work") {
-    workItems.push(item);
-    res.redirect("/work");
-  } else {
-    items.push(item);
-    res.redirect("/");
-  }
+  const item = new Item({
+    name: itemName;
+  });
+
+  item.save();
 });
 
 app.get("/work", function(req, res){

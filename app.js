@@ -55,6 +55,10 @@ app.get("/", function(req, res){
   });
 });
 
+app.get("/:customListName", function(req, res){
+  const customListName = req.params.customListName;
+})
+
 app.post("/", function(req, res) {
   const itemName = req.body.newItem;
 

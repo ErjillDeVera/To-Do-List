@@ -65,13 +65,23 @@ app.get("/", function(req, res){
 app.get("/:customListName", function(req, res){
   const customListName = req.params.customListName;
 
-  const list = new List({
-    name: customListName,
-    items: defaultItems
+  List.findOne({name: customListName}, function(err, foundList){
+    if (!err){
+      if (!foundList){
+        //Creates a new listTitle
+        const list = new List({
+          name: customListName,
+          items: defaultItems
+        });
+        list.save();
+        res.redirect("/" + customListName);
+      } else {
+        //Uses existing list
+        res.render("list", {listTitle: foundList.name, newListItems: foundList.items});
+      }
+    }
   });
-
-  list.save();
-})
+});
 
 app.post("/", function(req, res) {
   const itemName = req.body.newItem;

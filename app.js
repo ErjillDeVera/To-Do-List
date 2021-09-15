@@ -104,17 +104,25 @@ app.post("/", function(req, res) {
   }
 });
 
-app.post("/delete", function(req,res){
+app.post("/delete", function(req, res){
   const deletingItem = req.body.deletedItem;
+  const listName = req.body.listName;
 
-  Item.findByIdAndRemove(deletingItem, function(err) {
-    if (err) {
-      console.log(err);
-    } else {
-      console.log("Successfully deleted item");
-      res.redirect("/");
-    }
-  });
+  if (listName === day) {
+    Item.findByIdAndRemove(deletingItem, function(err) {
+      if (!err) {
+        console.log("Successfully deleted checked item.");
+        res.redirect("/");
+      }
+    });
+  } else {
+    List.findOneAndUpdate({name: listName}, {$pull: {items: {_id: deletingItem}}}, function(err, foundList){
+      if (!err) {
+        console.log(listName);
+        res.redirect("/" + listName);
+      }
+    });
+  }
 });
 
 app.listen(3000, function() {
